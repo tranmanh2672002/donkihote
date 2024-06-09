@@ -1,7 +1,9 @@
-import { Button } from '@mantine/core';
+import { Button, Divider, SimpleGrid, Title } from '@mantine/core';
 import axios from 'axios';
 import PostFormDialog from '../../components/post/PostFormDialog';
 import { useState } from 'react';
+import PostItem from '../../components/post/PostItem';
+import { IconPlus } from '@tabler/icons-react';
 
 const fetData = async () => {
   const res = await axios.get(`${process.env.API_BASEURL}/post`);
@@ -15,45 +17,69 @@ export async function getServerSideProps() {
 
 export default function AdminPostList({ data }: { data: any[] }) {
   const [opened, setOpened] = useState(false);
-  const [name, setName] = useState('');
-  const [image, setImage] = useState(null);
+  const [description, setDescription] = useState('');
+  const [images, setImages] = useState<string[]>([]);
   const [dateTime, setDateTime] = useState(null);
+
+  const addToImages = (url: string) => {
+    if (!url) return;
+    setImages([...images, url]);
+  };
+
+  const deleteImage = (url: string) => {
+    if (!url) return;
+    const newImages = images?.filter((image) => image !== url);
+    setImages(newImages);
+  };
 
   const handleSubmit = () => {
     // Xử lý dữ liệu và tạo đối tượng ở đây
-    console.log('Name:', name);
-    console.log('Image:', image);
+    console.log('Description:', description);
+    console.log('Images:', images);
     console.log('Date Time:', dateTime);
   };
 
+  const onClose = () => {
+    setOpened(false);
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setDescription('');
+    setImages([]);
+    setDateTime(null);
+  };
+
   return (
-    <>
-      <div>
-        <Button color="teal" onClick={() => setOpened(true)}>
-          Tạo mới
-        </Button>
-        <div className="content">
-          {data.map((recipe: any) => {
-            return (
-              <div key={recipe.id}>
-                <h1>{recipe.name}</h1>
-                <p>{recipe.description}</p>
-              </div>
-            );
-          })}
+    <div className="max-w-[1200px] mx-auto mt-10 p-4">
+      <div className="border rounded-lg ">
+        <div className="px-4 my-4 flex items-center justify-between">
+          <Title size={20} className="font-semibold">
+            Danh sách bài viết
+          </Title>
+          <Button className="mb-0" leftSection={<IconPlus size={16} />} onClick={() => setOpened(true)}>
+            Tạo mới
+          </Button>
         </div>
+        <Divider />
+        <SimpleGrid pt={16} px={16} cols={{ base: 1, xs: 2, sm: 3, lg: 4 }}>
+          {data.map((post: any, index) => {
+            return <PostItem data={post} key={index} />;
+          })}
+        </SimpleGrid>
       </div>
       <PostFormDialog
         opened={opened}
-        onClose={() => setOpened(false)}
+        onClose={onClose}
         onSubmit={handleSubmit}
-        name={name}
-        setName={setName}
-        image={image}
-        setImage={setImage}
+        description={description}
+        setDescription={setDescription}
+        images={images}
+        addToImages={addToImages}
+        onDeleteImage={deleteImage}
         dateTime={dateTime}
         setDateTime={setDateTime}
       />
-    </>
+    </div>
   );
 }

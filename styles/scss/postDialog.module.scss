@@ -1,0 +1,30 @@
+.wrapper {
+  --modal-size: 90% !important;
+}
+
+.image {
+  &:hover {
+    .close {
+      display: block !important;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .wrapper {
+    --modal-size: 70% !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .wrapper {
+    --modal-size: 60% !important;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .wrapper {
+    --modal-size: 50% !important;
+  }
+}

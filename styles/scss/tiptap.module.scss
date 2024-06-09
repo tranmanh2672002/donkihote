@@ -1,0 +1,28 @@
+.wrapper {
+  div[contenteditable='true'] {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    outline: none !important;
+    padding: 5.5px 12px;
+    font-size: 14px;
+    max-height: 200px;
+    min-height: 200px;
+    overflow: auto;
+    transition: all 0.1s linear;
+    &:focus {
+      border-color: var(--mantine-primary-color-filled);
+    }
+  }
+}
+
+.emptyEditor {
+  content: attr(data-placeholder);
+  &::before {
+    content: attr(data-placeholder);
+    color: #adb5bd;
+    float: left;
+    height: 0;
+    pointer-events: none;
+    font-size: 14px;
+  }
+}
