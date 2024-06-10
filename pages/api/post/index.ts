@@ -22,7 +22,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       break;
     case 'POST':
       try {
-        console.log(req.body);
         const errors = createPostValidator(req.body);
         if (errors?.length) {
           return res.status(400).json({ status: IResponseStatus.error, errors });

@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 
 const PostFormDialog = ({
   opened,
+  isLoading,
   onClose,
   onSubmit,
   description,
@@ -78,7 +79,7 @@ const PostFormDialog = ({
           <Grid.Col span={{ base: 12 }}>
             <Divider />
             <Flex justify="center" mt={16}>
-              <Button disabled={!isValid} onClick={onSubmit}>
+              <Button loading={isLoading} disabled={!isValid} onClick={onSubmit}>
                 Lưu
               </Button>
             </Flex>

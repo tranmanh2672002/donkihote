@@ -4,6 +4,8 @@ import PostFormDialog from '../../components/post/PostFormDialog';
 import { useState } from 'react';
 import PostItem from '../../components/post/PostItem';
 import { IconPlus } from '@tabler/icons-react';
+import { notifications } from '@mantine/notifications';
+import { IResponseStatus } from '../../interfaces/response.interface';
 
 const fetData = async () => {
   const res = await axios.get(`${process.env.API_BASEURL}/post`);
@@ -17,6 +19,7 @@ export async function getServerSideProps() {
 
 export default function AdminPostList({ data }: { data: any[] }) {
   const [opened, setOpened] = useState(false);
+  const [isCreating, setCreating] = useState(false);
   const [description, setDescription] = useState('');
   const [images, setImages] = useState<string[]>([]);
   const [dateTime, setDateTime] = useState(null);
@@ -32,11 +35,29 @@ export default function AdminPostList({ data }: { data: any[] }) {
     setImages(newImages);
   };
 
-  const handleSubmit = () => {
-    // Xử lý dữ liệu và tạo đối tượng ở đây
-    console.log('Description:', description);
-    console.log('Images:', images);
-    console.log('Date Time:', dateTime);
+  const handleSubmit = async () => {
+    const data = {
+      images,
+      description,
+      date: dateTime,
+    };
+    setCreating(true);
+    const res = await axios.post(`${process.env.API_BASEURL}/post`, data);
+    setCreating(false);
+    if (res.data.status === IResponseStatus.success) {
+      notifications.show({
+        title: 'Bài viết',
+        message: 'Tạo mới thành công',
+        color: 'blue',
+      });
+      setOpened(false);
+    } else {
+      notifications.show({
+        title: 'Bài viết',
+        message: 'Tạo mới không thành công',
+        color: 'red',
+      });
+    }
   };
 
   const onClose = () => {
@@ -62,7 +83,7 @@ export default function AdminPostList({ data }: { data: any[] }) {
           </Button>
         </div>
         <Divider />
-        <SimpleGrid pt={16} px={16} cols={{ base: 1, xs: 2, sm: 3, lg: 4 }}>
+        <SimpleGrid pt={16} px={16} cols={{ base: 1 }}>
           {data.map((post: any, index) => {
             return <PostItem data={post} key={index} />;
           })}
@@ -70,6 +91,7 @@ export default function AdminPostList({ data }: { data: any[] }) {
       </div>
       <PostFormDialog
         opened={opened}
+        isLoading={isCreating}
         onClose={onClose}
         onSubmit={handleSubmit}
         description={description}
