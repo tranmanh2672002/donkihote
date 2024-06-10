@@ -33,7 +33,7 @@ const PostFormDialog = ({
             <Tiptap label={'Mô tả'} description={description} setDescription={setDescription} />
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 4, lg: 4 }}>
-            <DateTimePicker label="Thời gian" placeholder="Chọn thời gian" clearable value={dateTime} onChange={setDateTime} required />
+            <DateTimePicker label="Thời gian" placeholder="Chọn thời gian" clearable defaultValue={dateTime} onChange={setDateTime} required />
           </Grid.Col>
           <Grid.Col span={{ base: 12 }}>
             <CldUploadWidget

@@ -13,11 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   switch (method) {
     case 'GET':
       try {
-        const posts = await Post.find({});
+        const posts = await Post.find().sort({ createdAt: -1 });
         return res.status(200).json({ status: IResponseStatus.success, data: posts });
       } catch (e) {
         console.error(e);
-        res.status(404).json({ status: 'error', message: 'Error get post' });
+        res.status(404).json({ status: 'error', message: 'Error get list post' });
       }
       break;
     case 'POST':
