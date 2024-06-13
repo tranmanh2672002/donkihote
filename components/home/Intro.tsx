@@ -10,7 +10,7 @@ function Intro() {
               NỘI THẤT VIỆT
             </h2>
           </div>
-          <p className="lg:text-left text-center font-semibold text-gray-400">
+          <p className="lg:text-left text-center font-light text-gray-400">
             Thiết kế của chúng tôi không ngừng khám phá những giới hạn mới, mang đến những ý tưởng đột phá và sáng tạo chưa từng có. Từ không gian ẩm
             thực đến nội thất sống, mỗi tác phẩm thiết kế của chúng tôi là một câu chuyện sáng tạo khác biệt, khơi gợi cả vị giác lẫn cảm xúc. Hãy
             cùng chúng tôi vượt ra ngoài những ranh giới truyền thống, khám phá những không gian sống mới lạ và đầy cảm hứng.
