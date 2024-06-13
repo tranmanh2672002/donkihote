@@ -85,8 +85,8 @@ function Sidebar() {
         <div
           className={
             rail
-              ? 'fixed top-0 left-0 h-full w-[60%] sm:hidden bg-white border-r border-r-slate-200 px-4 ease-in-out duration-500'
-              : 'fixed left-[-100%]'
+              ? 'fixed top-0 right-0 h-full w-[100%] sm:hidden bg-white border-r border-r-slate-200 px-4 ease-in-out duration-500'
+              : 'fixed right-[-100%]'
           }
         >
           <div className="flex justify-between items-center py-4">
