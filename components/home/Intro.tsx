@@ -6,7 +6,7 @@ function Intro() {
       <div className="lg:w-[40%]">
         <div className="h-full flex flex-col items-center justify-center gap-5">
           <div className="w-full flex lg:justify-start justify-center">
-            <h2 className="w-max text-transparent bg-gradient-to-r from-green-500 to-purple-500 bg-clip-text text-center font-bold lg:text-[36px] text-[30px]">
+            <h2 className="w-max text-transparent bg-gradient-to-r from-green-600 to-amber-600 bg-clip-text text-center font-bold lg:text-[36px] text-[30px]">
               NỘI THẤT VIỆT
             </h2>
           </div>

@@ -22,7 +22,7 @@ function SlideShow() {
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
-        className="!w-[340px] !h-[240px] sm:!w-[600px] sm:!h-[340px] rounded-xl"
+        className="!w-[100%] !h-[240px] sm:!w-[600px] sm:!h-[340px] rounded-xl"
       >
         <SwiperSlide>
           <Image className="bg-cover" src={intro1} alt="intro1" />

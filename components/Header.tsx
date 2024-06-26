@@ -4,7 +4,10 @@ import logo from '../assets/images/logo.png';
 import Image from 'next/image';
 import { Divider } from '@mantine/core';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 function Sidebar() {
+  const pathname = usePathname();
   const [rail, setRail] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -32,50 +35,64 @@ function Sidebar() {
           <li
             className={`transition-all duration-200 ${
               scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[18px] font-medium cursor-pointer select-none relative inline-block group`}
+            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
                 scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link href="/">Trang chủ</Link>
+            <Link className={`link ${pathname === '/' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`} href="/">
+              Trang chủ
+            </Link>
           </li>
           <li
             className={`transition-all duration-200 ${
               scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[18px] font-medium cursor-pointer select-none relative inline-block group`}
+            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
                 scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link href="/product">Sản phẩm</Link>
+            <Link
+              className={`link ${pathname === '/product' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`}
+              href="/product"
+            >
+              Sản phẩm
+            </Link>
           </li>
           <li
             className={`transition-all duration-200 ${
               scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[18px] font-medium cursor-pointer select-none relative inline-block group`}
+            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
                 scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link href="/about">Về chúng tôi</Link>
+            <Link className={`link ${pathname === '/about' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`} href="/about">
+              Về chúng tôi
+            </Link>
           </li>
           <li
             className={`transition-all duration-200 ${
               scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[18px] font-medium cursor-pointer select-none relative inline-block group`}
+            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
                 scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link href="/contact">Liên hệ</Link>
+            <Link
+              className={`link ${pathname === '/contact' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`}
+              href="/contact"
+            >
+              Liên hệ
+            </Link>
           </li>
         </ul>
         <IconList

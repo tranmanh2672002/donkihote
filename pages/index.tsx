@@ -3,6 +3,9 @@ import Header from '../components/Header';
 import { IResponseStatus } from '../interfaces/response.interface';
 import BackgroundPattern from '../components/BackgroundPattern';
 import Intro from '../components/home/Intro';
+import SavingGrace from '../components/home/SavingGrace';
+import Footer from '../components/Footer';
+import ScrollToTop from '../components/ScrollToTop';
 
 export async function getServerSideProps() {
   const res2 = await axios.get(`${process.env.API_BASEURL}/post`);
@@ -20,39 +23,11 @@ export default function Home({ data }: { data: any[] }) {
       <Header />
       <div className="relative z-10 max-w-[1200px] m-auto mt-[92px] py-4 px-[20px] sm:px-[40px] lg:px-[40]">
         <Intro />
-        {data.map((recipe: any) => {
-          return (
-            <div key={recipe.id}>
-              <h1>{recipe.name}</h1>
-              <p>{recipe.description}</p>
-            </div>
-          );
-        })}
-        {data.map((recipe: any) => {
-          return (
-            <div key={recipe.id}>
-              <h1>{recipe.name}</h1>
-              <p>{recipe.description}</p>
-            </div>
-          );
-        })}
-        {data.map((recipe: any) => {
-          return (
-            <div key={recipe.id}>
-              <h1>{recipe.name}</h1>
-              <p>{recipe.description}</p>
-            </div>
-          );
-        })}
-        {data.map((recipe: any) => {
-          return (
-            <div key={recipe.id}>
-              <h1>{recipe.name}</h1>
-              <p>{recipe.description}</p>
-            </div>
-          );
-        })}
+        <SavingGrace />
       </div>
+
+      <Footer />
+      <ScrollToTop />
     </>
   );
 }
