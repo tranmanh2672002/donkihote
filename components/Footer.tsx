@@ -2,10 +2,22 @@ import Image from 'next/image';
 import logo from '../assets/images/logo.png';
 import { ActionIcon } from '@mantine/core';
 import { IconBrandFacebook, IconBrandTelegram, IconPhone, IconBrandTwitter, IconBrandSkype } from '@tabler/icons-react';
+import { LazyMotion, domAnimation, motion, useInView } from 'framer-motion';
+
+const variants = {
+  initial: {
+    translateY: 200,
+    opacity: 0,
+  },
+  animate: {
+    translateY: 0,
+    opacity: 1,
+  },
+};
 
 function Footer() {
   return (
-    <div className="border-t-[1px] border-[#ccc] py-10">
+    <motion.div className="border-t-[1px] border-[#ccc] py-10" variants={variants} initial="initial" whileInView="animate" viewport={{ once: true }}>
       <div className="flex justify-center">
         <Image src={logo} alt="logo" width={60} height={60} className="select-none " />
       </div>
@@ -27,8 +39,8 @@ function Footer() {
           <IconBrandSkype size={18} />
         </ActionIcon>
       </div>
-      <div className="text-center text-sm text-[#1D263A]">© 2024 Donkihote. By TranVanManh</div>
-    </div>
+      <div className="text-center text-sm text-[#1D263A]">© 2024 Donkihote. By Manhtv</div>
+    </motion.div>
   );
 }
 

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Divider } from '@mantine/core';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 function Sidebar() {
   const pathname = usePathname();
@@ -28,69 +29,60 @@ function Sidebar() {
     };
   }, []);
   return (
-    <div className={`fixed top-0 left-0 right-0  z-50 shadow transition-all duration-200 ${scrollPosition > 200 ? 'bg-[#b7c4c5]' : 'bg-white'} `}>
-      <div className="flex items-center justify-between max-w-[1200px] m-auto py-4 px-[20px] sm:px-[40px] lg:px-[40]">
-        <Image src={logo} alt="logo" width={60} height={60} className="select-none" />
+    <div className={`fixed top-0 left-0 right-0  z-50 shadow transition-all duration-200 ${'bg-white'} `}>
+      <motion.div
+        className="flex items-center justify-between max-w-[1200px] m-auto py-4 px-[20px] sm:px-[40px] lg:px-[40]"
+        initial={{ translateY: -200 }}
+        animate={{ translateY: 0 }}
+        transition={{ ease: 'circOut' }}
+      >
+        <Image src={logo} alt="logo" className="select-none w-[40px] h-[40px] sm:h-[60px] sm:w-[60px]" />
         <ul className="hidden  sm:flex gap-4 md:gap-10">
           <li
-            className={`transition-all duration-200 ${
-              scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
+            className={`transition-all duration-200 ${'text-[#1D263A]'}  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
-                scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
+                pathname === '/' ? 'bg-green-600' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link className={`link ${pathname === '/' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`} href="/">
+            <Link className={`link ${pathname === '/' ? `${'text-green-600'}` : ''}`} href="/">
               Trang chủ
             </Link>
           </li>
           <li
-            className={`transition-all duration-200 ${
-              scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
+            className={`transition-all duration-200 ${'text-[#1D263A]'}  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
-                scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
+                pathname === '/product' ? 'bg-green-600' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link
-              className={`link ${pathname === '/product' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`}
-              href="/product"
-            >
+            <Link className={`link ${pathname === '/product' ? `${'text-green-600'}` : ''}`} href="/product">
               Sản phẩm
             </Link>
           </li>
           <li
-            className={`transition-all duration-200 ${
-              scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
+            className={`transition-all duration-200 ${'text-[#1D263A]'}  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
-                scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
+                pathname === '/about' ? 'bg-green-600' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link className={`link ${pathname === '/about' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`} href="/about">
+            <Link className={`link ${pathname === '/about' ? `${'text-green-600'}` : ''}`} href="/about">
               Về chúng tôi
             </Link>
           </li>
           <li
-            className={`transition-all duration-200 ${
-              scrollPosition > 200 ? 'text-white' : 'text-[#1D263A]'
-            }  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
+            className={`transition-all duration-200 ${'text-[#1D263A]'}  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
           >
             <span
               className={`absolute bottom-0 left-0 w-full h-[2px] ${
-                scrollPosition > 200 ? 'bg-white' : 'bg-[#1D263A]'
+                pathname === '/contact' ? 'bg-green-600' : 'bg-[#1D263A]'
               }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
             ></span>
-            <Link
-              className={`link ${pathname === '/contact' ? `${scrollPosition > 200 ? 'text-amber-800' : 'text-green-600'}` : ''}`}
-              href="/contact"
-            >
+            <Link className={`link ${pathname === '/contact' ? `${'text-green-600'}` : ''}`} href="/contact">
               Liên hệ
             </Link>
           </li>
@@ -133,7 +125,7 @@ function Sidebar() {
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

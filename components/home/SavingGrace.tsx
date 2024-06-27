@@ -1,4 +1,5 @@
 import { IconLeaf, IconFileShredder, IconAugmentedReality } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 const data = [
   {
@@ -23,6 +24,17 @@ const data = [
   },
 ];
 
+const variants = {
+  initial: {
+    translateY: 200,
+    opacity: 0,
+  },
+  animate: {
+    translateY: 0,
+    opacity: 1,
+  },
+};
+
 function SavingGrace() {
   return (
     <div className="flex flex-col md:flex-row gap-10 my-20">
@@ -35,11 +47,18 @@ function SavingGrace() {
 
 function Card({ data }: any) {
   return (
-    <div className="flex flex-col items-center gap-3">
+    <motion.div
+      className="flex flex-col items-center gap-3"
+      variants={variants}
+      transition={{ delay: 0.5 }}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+    >
       {data?.icon}
       <div className="font-medium uppercase text-[#1D263A]">{data?.title}</div>
       <div className="text-[15px] text-[#1D263A] text-center">{data?.description}</div>
-    </div>
+    </motion.div>
   );
 }
 

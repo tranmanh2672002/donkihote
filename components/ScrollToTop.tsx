@@ -30,7 +30,9 @@ const ScrollToTop = () => {
   return (
     <div
       onClick={scrollToTop}
-      className={`fixed bottom-10 right-10 p-2 rounded-full bg-amber-900 shadow-sm animate-bounce hidden sm:block ${visible ? '' : '!hidden'}`}
+      className={`fixed z-50 bottom-10 right-10 p-2 rounded-full bg-amber-900 shadow-sm animate-bounce cursor-pointer hidden sm:block ${
+        visible ? '' : '!hidden'
+      }`}
     >
       <IconChevronUp color="#fff" size={30} />
     </div>
