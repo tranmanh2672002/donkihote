@@ -17,7 +17,13 @@ const variants = {
 
 function Footer() {
   return (
-    <motion.div className="border-t-[1px] border-[#ccc] py-10" variants={variants} initial="initial" whileInView="animate" viewport={{ once: true }}>
+    <motion.div
+      className="border-t-[1px] border-[#ccc] py-10 w-full"
+      variants={variants}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+    >
       <div className="flex justify-center">
         <Image src={logo} alt="logo" width={60} height={60} className="select-none " />
       </div>

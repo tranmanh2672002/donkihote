@@ -1,14 +1,14 @@
 import Image from 'next/image';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import intro1 from '../../assets/images/intro/intro1.jpg';
 import intro2 from '../../assets/images/intro/intro2.jpg';
 import intro3 from '../../assets/images/intro/intro3.jpg';
 import intro4 from '../../assets/images/intro/intro4.jpg';
 import intro5 from '../../assets/images/intro/intro5.jpg';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 
 function SlideShow() {
   return (
