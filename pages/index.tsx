@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import Product from '../components/home/Product';
 import ScrollToTop from '../components/ScrollToTop';
 
-export default function Home({ data }: { data: any[] }) {
+export default function Home() {
   return (
     <>
       <BackgroundPattern />
