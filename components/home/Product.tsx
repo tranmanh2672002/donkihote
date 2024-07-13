@@ -81,11 +81,11 @@ function Product() {
           variants={variantTitle}
           initial="initial"
           whileInView="animate"
-          transition={{ delay: 0.5, duration: 0.5 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
           className="mb-4 font-bold text-transparent text-[26px] sm:text-[28px] md:text-[34px] bg-clip-text bg-gradient-to-r from-amber-700 to-green-400"
         >
-          Sản phẩm của chúng tôi
+          Sản phẩm nổi bật
         </motion.div>
         {data?.map((item, index) => {
           return <Post key={index} data={item} />;
@@ -109,7 +109,7 @@ function Post({ data }: any) {
       </motion.div>
       <motion.div
         variants={variantImage}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.25 }}
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}

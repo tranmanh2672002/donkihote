@@ -30,9 +30,9 @@ function Intro() {
           variants={variantTitle}
           initial="initial"
           whileInView="animate"
-          transition={{ delay: 0.5, duration: 0.5 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
-          className="font-bold text-transparent text-[26px] sm:text-[28px] md:text-[34px] bg-clip-text bg-gradient-to-r from-amber-700 to-green-400"
+          className="font-bold text-transparent text-[26px] sm:text-[28px] md:text-[34px] bg-clip-text bg-gradient-to-r from-amber-700 to-[#1e796c]"
         >
           Hãy liên hệ với chúng tôi
         </motion.div>
@@ -40,7 +40,7 @@ function Intro() {
           variants={variantDescription}
           initial="initial"
           whileInView="animate"
-          transition={{ delay: 0.5, duration: 0.5 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
           className="mt-4 px-4 sm:px-20 lg:px-32 text-gray-400 text-center text-md"
         >

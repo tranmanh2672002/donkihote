@@ -37,7 +37,7 @@ function Contact() {
           variants={variantInfo}
           initial="initial"
           whileInView="animate"
-          transition={{ delay: 0.5, duration: 0.5 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
           className="w-full md:w-80 flex flex-col sm:flex-row md:flex-col gap-6"
         >
@@ -54,7 +54,7 @@ function Contact() {
           variants={variantForm}
           initial="initial"
           whileInView="animate"
-          transition={{ delay: 0.5, duration: 0.5 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
           viewport={{ once: true }}
           className="flex-1 w-full"
         >

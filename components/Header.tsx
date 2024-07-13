@@ -16,10 +16,10 @@ const sidebar = [
     title: 'Sản phẩm',
     path: '/product',
   },
-  {
-    title: 'Về chúng tôi',
-    path: '/about',
-  },
+  // {
+  //   title: 'Về chúng tôi',
+  //   path: '/about',
+  // },
   {
     title: 'Liên hệ',
     path: '/contact',
@@ -42,19 +42,23 @@ function Sidebar() {
         animate={{ translateY: 0 }}
         transition={{ ease: 'circOut' }}
       >
-        <Image src={logo} alt="logo" className="select-none w-[40px] h-[40px] sm:h-[60px] sm:w-[60px]" />
+        <div className="flex items-center">
+          <Image src={logo} alt="logo" className="select-none w-[40px] h-[40px] sm:h-[60px] sm:w-[60px]" />
+          <div className="font-bold text-[17px] text-[#1e796c]">Donkihote.</div>
+        </div>
         <ul className="hidden  sm:flex gap-4 md:gap-10">
           {sidebar.map((item, index) => {
             return (
               <li
+                key={index}
                 className={`transition-all duration-200 ${'text-[#1D263A]'}  text-[16px] font-medium cursor-pointer select-none relative inline-block group`}
               >
                 <span
                   className={`absolute bottom-0 left-0 w-full h-[2px] ${
-                    pathname === item.path ? 'bg-green-600' : 'bg-[#1D263A]'
+                    pathname === item.path ? 'bg-[#1e796c]' : 'bg-[#1D263A]'
                   }  scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200`}
                 ></span>
-                <Link className={`link ${pathname === item.path ? `${'text-green-600'}` : ''}`} href={item.path}>
+                <Link className={`link ${pathname === item.path ? `${'text-[#1e796c]'}` : ''}`} href={item.path}>
                   {item.title}
                 </Link>
               </li>
@@ -77,8 +81,8 @@ function Sidebar() {
           <ul className="flex flex-col gap-6 ">
             {sidebar.map((item, index) => {
               return (
-                <li className="w-max text-[#1D263A] text-[16px] font-medium cursor-pointer select-none relative inline-block group">
-                  <Link className={`link ${pathname === item.path ? `${'text-green-600'}` : ''}`} href={item.path}>
+                <li key={index} className="w-max text-[#1D263A] text-[16px] font-medium cursor-pointer select-none relative inline-block group">
+                  <Link className={`link ${pathname === item.path ? `${'text-[#1e796c]'}` : ''}`} href={item.path}>
                     {item.title}
                   </Link>
                 </li>
