@@ -42,9 +42,9 @@ function Sidebar() {
         animate={{ translateY: 0 }}
         transition={{ ease: 'circOut' }}
       >
-        <div className="flex items-center">
+        <div className="flex items-center gap-2">
           <Image src={logo} alt="logo" className="select-none w-[40px] h-[40px] sm:h-[60px] sm:w-[60px]" />
-          <div className="font-bold text-[17px] text-[#1e796c]">Donkihote.</div>
+          <div className="font-bold text-[17px] text-[#1e796c]">Tư vấn - Thiết kế - Thi công</div>
         </div>
         <ul className="hidden  sm:flex gap-4 md:gap-10">
           {sidebar.map((item, index) => {

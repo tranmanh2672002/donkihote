@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Donkihote</title>
+        <title>Tư vấn - Thiết kế - Thi công</title>
         <meta property="og:image" content={`https://res.cloudinary.com/dij3qktkj/image/upload/v1720857665/donkihote/td00plerdgkoettf0esa.jpg`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
