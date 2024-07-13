@@ -1,6 +1,4 @@
-import axios from 'axios';
 import Header from '../components/Header';
-import { IResponseStatus } from '../interfaces/response.interface';
 import BackgroundPattern from '../components/BackgroundPattern';
 import Intro from '../components/home/Intro';
 import SavingGrace from '../components/home/SavingGrace';
