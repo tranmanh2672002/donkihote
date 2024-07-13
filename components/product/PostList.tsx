@@ -1,3 +1,4 @@
+'use client';
 import { IconCalendarMonth } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -5,6 +6,9 @@ import logo from '../../assets/images/logo.png';
 import dayjs from 'dayjs';
 import Description from './Description';
 import { Divider } from '@mantine/core';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { IResponseStatus } from '../../interfaces/response.interface';
 
 const variant = {
   initial: {
@@ -17,7 +21,19 @@ const variant = {
   },
 };
 
-function PostList({ data }: { data: any[] }) {
+function PostList() {
+  const [data, setData] = useState<any[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(`${process.env.API_BASEURL}/post`);
+      if (res.data.status === IResponseStatus.success) {
+        const data = res.data.data;
+        setData(data);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="pt-6">
