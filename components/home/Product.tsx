@@ -59,11 +59,11 @@ const variantInfo = {
 
 const variantImage = {
   initial: {
-    translateX: 100,
+    translateY: 100,
     opacity: 0,
   },
   animate: {
-    translateX: 0,
+    translateY: 0,
     opacity: 1,
   },
 };
