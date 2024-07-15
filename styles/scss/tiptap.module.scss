@@ -15,6 +15,12 @@
   }
 }
 
+.content {
+  div[contenteditable='true'] {
+    outline: none;
+  }
+}
+
 .emptyEditor {
   content: attr(data-placeholder);
   &::before {
