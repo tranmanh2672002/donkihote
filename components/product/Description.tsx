@@ -2,6 +2,7 @@
 
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import styles from '../../styles/scss/tiptap.module.scss';
 
 const Description = ({ description }: { description: string }) => {
   const editor = useEditor({
@@ -11,7 +12,7 @@ const Description = ({ description }: { description: string }) => {
 
   return (
     <>
-      <EditorContent editor={editor} disabled />
+      <EditorContent className={styles.content} editor={editor} disabled />
     </>
   );
 };
