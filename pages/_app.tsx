@@ -14,14 +14,19 @@ const theme = createTheme({
   /** Put your mantine theme override here */
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
+  console.log(router.pathname);
   return (
     <MantineProvider theme={theme}>
       <Notifications autoClose={2000} position="top-right" />
       <ModalsProvider>
-        <MainLayout>
+        {router.pathname === '/admin' ? (
           <Component {...pageProps} />
-        </MainLayout>
+        ) : (
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+        )}
       </ModalsProvider>
     </MantineProvider>
   );
