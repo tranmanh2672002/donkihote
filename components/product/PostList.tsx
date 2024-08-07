@@ -5,7 +5,7 @@ import Image from 'next/image';
 import logo from '../../assets/images/logo.png';
 import dayjs from 'dayjs';
 import Description from './Description';
-import { Divider } from '@mantine/core';
+import { Divider, Skeleton } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { IResponseStatus } from '../../interfaces/response.interface';
@@ -23,36 +23,66 @@ const variant = {
 
 function PostList() {
   const [data, setData] = useState<any[]>([]);
+  const [isLoading, setLoading] = useState<boolean>(false);
+
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const res = await axios.get(`${process.env.API_BASEURL}/post`);
       if (res.data.status === IResponseStatus.success) {
         const data = res.data.data;
         setData(data);
       }
+      setLoading(false);
     };
     fetchData();
   }, []);
 
   return (
     <>
-      <div className="pt-6">
-        {data?.map((item, index) => {
-          return (
-            <motion.div
-              key={index}
-              variants={variant}
-              initial="initial"
-              whileInView="animate"
-              transition={{ delay: 0.25, duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <Post data={item} />
-              <Divider className={`${index + 1 === data?.length ? 'hidden' : 'mb-6'}`} />
-            </motion.div>
-          );
-        })}
-      </div>
+      {isLoading ? (
+        <>
+          <div>
+            <div className="flex items-center justify-between">
+              <Skeleton height={50} circle mb="sm" />
+              <Skeleton height={20} width={160} radius="xl" />
+            </div>
+            <Skeleton height={8} mt={6} width="70%" radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={300} mt={20} radius="sm" />
+          </div>
+
+          <div className="my-7">
+            <div className="flex items-center justify-between">
+              <Skeleton height={50} circle mb="sm" />
+              <Skeleton height={20} width={160} radius="xl" />
+            </div>
+            <Skeleton height={8} mt={6} width="70%" radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={8} mt={6} radius="xl" />
+            <Skeleton height={300} mt={20} radius="sm" />
+          </div>
+        </>
+      ) : (
+        <div className="pt-6">
+          {data?.map((item, index) => {
+            return (
+              <motion.div
+                key={index}
+                variants={variant}
+                initial="initial"
+                whileInView="animate"
+                transition={{ delay: 0.25, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <Post data={item} />
+                <Divider className={`${index + 1 === data?.length ? 'hidden' : 'mb-6'}`} />
+              </motion.div>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 }

@@ -10,7 +10,10 @@ export default function Document() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:title" content={`Nội thất Việt`} />
-        <meta property="og:description" content={'Mang đến cho bạn trải nghiệm tuyệt vời'} />
+        <meta
+          property="og:description"
+          content={'Tư vấn - thi công - thiết kế nội thất Việt, cam kết chất lượng sản phẩm, mang đến cho bạn trải nghiệm tuyệt vời'}
+        />
         <ColorSchemeScript defaultColorScheme="auto" />
       </Head>
       <body>
