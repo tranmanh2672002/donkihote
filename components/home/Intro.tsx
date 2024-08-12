@@ -12,9 +12,9 @@ function Intro() {
           transition={{ delay: 0.25, ease: 'circOut' }}
         >
           <div className="w-full flex lg:justify-start justify-center">
-            <h2 className="w-max text-transparent bg-gradient-to-r from-[#1e796c] to-amber-400 bg-clip-text text-center font-bold lg:text-[36px] text-[30px]">
+            <h1 className="w-max text-transparent bg-gradient-to-r from-[#1e796c] to-amber-400 bg-clip-text text-center font-bold lg:text-[36px] text-[30px]">
               NỘI THẤT VIỆT
-            </h2>
+            </h1>
           </div>
           <p className="lg:text-left text-center font text-gray-400">
             Thiết kế của chúng tôi không ngừng khám phá những giới hạn mới, mang đến những ý tưởng đột phá và sáng tạo chưa từng có. Từ không gian ẩm

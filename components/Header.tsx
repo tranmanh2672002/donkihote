@@ -34,6 +34,10 @@ function Sidebar() {
     setRail(!rail);
   };
 
+  const handleHideMenu = () => {
+    setRail(false);
+  };
+
   return (
     <div className={`fixed top-0 left-0 right-0  z-50 shadow transition-all duration-200 ${'bg-white'} `}>
       <motion.div
@@ -44,7 +48,7 @@ function Sidebar() {
       >
         <div className="flex items-center gap-2">
           <Image src={logo} alt="logo" className="select-none w-[40px] h-[40px] sm:h-[60px] sm:w-[60px]" />
-          <div className="font-bold text-[17px] text-[#1e796c]">Tư vấn - Thiết kế - Thi công</div>
+          <h1 className="font-bold text-[17px] text-[#1e796c]">Tư vấn - Thiết kế - Thi công</h1>
         </div>
         <ul className="hidden  sm:flex gap-4 md:gap-10">
           {sidebar.map((item, index) => {
@@ -82,7 +86,7 @@ function Sidebar() {
             {sidebar.map((item, index) => {
               return (
                 <li key={index} className="w-max text-[#1D263A] text-[16px] font-medium cursor-pointer select-none relative inline-block group">
-                  <Link className={`link ${pathname === item.path ? `${'text-[#1e796c]'}` : ''}`} href={item.path}>
+                  <Link onClick={handleHideMenu} className={`link ${pathname === item.path ? `${'text-[#1e796c]'}` : ''}`} href={item.path}>
                     {item.title}
                   </Link>
                 </li>
